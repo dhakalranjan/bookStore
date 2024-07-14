@@ -4,6 +4,7 @@ const { GENRE } = require("../model/genre");
 
 async function handleCreateBook(req, res, next) {
   const book = req.body;
+  //calling author and genre in here to add in Books
   const authorName = await AUTHOR.findById(book.author);
   const genreName = await GENRE.findById(book.genre);
   try {
