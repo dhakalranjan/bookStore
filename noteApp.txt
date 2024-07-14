@@ -1,0 +1,25 @@
+Books
+    Genre -category
+    Author -category
+    Title
+    Date 
+    Price
+
+
+    This will be Folder Structure
+my-bookstore/
+├── app.js
+├── models/
+│   ├── book.js
+│   ├── author.js
+│   └── genre.js
+├── routes/
+│   ├── books.js
+│   ├── authors.js
+│   └── genre.js
+├── controllers/
+│   ├── bookController.js
+│   ├── authorController.js
+│   └── genreController.js
+└── config/
+    └── database.js
