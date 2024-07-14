@@ -25,23 +25,19 @@ async function handleCreateBook(req, res, next) {
         .json({ error: "Published date is required required" });
     }
 
-    if (!authorName) {
-      return res.status(400).json({ error: "Invalid author ID" });
-    }
-    if (!genreName) {
-      return res.status(400).json({ error: "Invalid Genre ID" });
-    }
     const createBook = await BOOK.create({
       bookTitle: book.title,
       bookDescription: book.description,
       publishDate: book.publishDate,
       bookImage: book.bookImage,
-      author: authorName.authorUsername,
-      genre: genreName.genreTitle,
+      authorName: authorName.authorUsername,
+      genreName: genreName.genreTitle,
     });
+    console.log(createBook)
     return res
       .status(201)
       .json({ message: "Book is added successfully", createBook });
+      
   } catch (error) {
     console.error("Error creating genre:", error);
     return res.status(500).json({ error: "Internal server error" });

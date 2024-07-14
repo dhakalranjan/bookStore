@@ -1,4 +1,5 @@
 const { AUTHOR } = require("../model/author");
+const {BOOK} = require("../model/book")
 
 async function handleCreateAuthor(req, res) {
   const author = req.body;
@@ -31,9 +32,13 @@ async function handleGetAuthor(req,res){
 
 async function handleGetAuthorById(req,res){
     const authorById = await AUTHOR.findById(req.params.id)
+  
     if(!authorById) {
         return res.status(404).json({error:"Author not found"})
     }
+    // const author = await AUTHOR.findById(authorById);
+    const books = await BOOK.find({ author : authorById });
+    console.log(books)
     return res.json(authorById)
 }
 

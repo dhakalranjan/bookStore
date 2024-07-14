@@ -16,7 +16,10 @@ const authorSchema = new mongoose.Schema({
         type: Number,
         required: true,
         unique: true
-    }
+    },
+    books:{
+        type:String,
+    },
 });
 
 const AUTHOR = mongoose.model("Author", authorSchema);

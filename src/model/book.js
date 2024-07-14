@@ -16,12 +16,11 @@ const bookSchema = new mongoose.Schema({
     bookImage:{
         type:String,
     },
-    author: {
-        type: String,
-        required:true
+    authorName: {
+      type:String
       },
-    genre:{
-        type:String
+    genreName:{
+    type:String
     }
 })
 
