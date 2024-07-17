@@ -4,7 +4,8 @@ const app = express();
 const PORT = 8800;
 const authorRouter = require("./src/routes/author");
 const genreRouter = require("./src/routes/genre");
-const bookRouter = require("./src/routes/book")
+const bookRouter = require("./src/routes/book");
+const userRouter = require("./src/routes/user")
 
 const { connectMongoDb } = require("./connection");
 
@@ -16,6 +17,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use("/api/author", authorRouter);
 app.use("/api/genre", genreRouter);
 app.use("/api/book", bookRouter);
+app.use("/api/user", userRouter);
+
 
 
 
