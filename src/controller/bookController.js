@@ -33,17 +33,24 @@ async function handleCreateBook(req, res, next) {
       authorName: authorName.authorUsername,
       genreName: genreName.genreTitle,
     });
-    console.log(createBook)
+    console.log(createBook);
     return res
       .status(201)
       .json({ message: "Book is added successfully", createBook });
-      
   } catch (error) {
     console.error("Error creating genre:", error);
     return res.status(500).json({ error: "Internal server error" });
   }
 }
 
+async function handleDeleteBook(req, res, next) {
+  const deleteBookId = await BOOK.findByIdAndDelete(req.params.id);
+  if (!deleteBookId) {
+    return res.status(404).json({ error: "Book not found" });
+  }
+  return res.json({ Message: "Book has been deleted" });
+}
 module.exports = {
   handleCreateBook,
+  handleDeleteBook,
 };

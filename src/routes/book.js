@@ -1,12 +1,13 @@
 const express = require("express")
 const router = express.Router();
-const {handleCreateBook} = require("../controller/bookController")
+const {handleCreateBook,handleDeleteBook} = require("../controller/bookController")
 
 
 
 
 
 router.route("/").post(handleCreateBook)
+router.route("/:id").delete(handleDeleteBook)
 
 
 
